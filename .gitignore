@@ -1,0 +1,70 @@
+# ========================
+# Dependencies
+# ========================
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+
+# ========================
+# Environment Variables
+# YEH KABHI PUSH MAT KARNA
+# ========================
+.env
+.env.local
+.env.production
+.env.development
+
+# ========================
+# Build Outputs
+# ========================
+dist/
+build/
+.next/
+out/
+
+# ========================
+# OS Files
+# ========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ========================
+# Logs
+# ========================
+*.log
+logs/
+npm-debug.log*
+
+# ========================
+# Editor
+# ========================
+.vscode/settings.json
+.idea/
+
+# ========================
+# Expo / React Native
+# ========================
+.expo/
+*.jks
+*.keystore
+```
+
+**`.env` kyun gitignore mein hai?**
+```
+.env mein hota hai:
+- Database password
+- JWT secret key
+- API keys
+
+Agar yeh GitHub pe gaya →
+koi bhi dekh sakta hai →
+tumhara database hack ho sakta hai
+
+Isliye .env KABHI push nahi karte
+.env.example push karte hain —
+jisme sirf keys hote hain, values nahi
