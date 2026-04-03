@@ -3,6 +3,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import { config } from './config/env';
 import connectDB from './config/database';
+import errorHandler from './middlewares/errorHandler';
 
 const app = express();
 
@@ -34,6 +35,17 @@ app.get('/health', (req, res) => {
         timestamp: new Date().toISOString(),
     });
 });
+
+// 404 Handler - Koi route match nahi hua 
+app.use('*splat', (req, res) => {
+    res.status(404).json({
+        status: 'fail',
+        message: `Route ${req.originalUrl} not found`,
+    });
+});
+
+// central error handler
+app.use(errorHandler);
 
 //SERVER START
 
