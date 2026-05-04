@@ -36,6 +36,12 @@ app.get('/health', (req, res) => {
     });
 });
 
+import authRoutes from './routes/auth.routes';
+
+// Auth Routes
+app.use('/api/auth', authRoutes);
+// Test route — sirf admin access kar sake
+
 // 404 Handler - Koi route match nahi hua 
 app.use('*splat', (req, res) => {
     res.status(404).json({
@@ -43,6 +49,8 @@ app.use('*splat', (req, res) => {
         message: `Route ${req.originalUrl} not found`,
     });
 });
+
+
 
 // central error handler
 app.use(errorHandler);

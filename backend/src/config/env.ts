@@ -22,13 +22,13 @@ export const config = {
     mongoUri: getEnvVariable('MONGODB_URI'),
 
     //JWT
-    jwtsecret: getEnvVariable('JWT_SECRET'),
+    jwtSecret: getEnvVariable('JWT_SECRET'),
     jwtRefreshSecret: getEnvVariable('JWT_REFRESH_SECRET'),
     jwtAccessExpires: process.env.JWT_ACCESS_EXPIRES || '15m',
     jwtRefreshExpires: process.env.JWT_REFRESH_EXPIRES || '7d',
 
     //Redis
-    redisUrl: process.env.RESDIS_URL || 'redis://localhost: 6379',
+    redisUrl: process.env.REDIS_URL || 'redis://localhost: 6379',
 
     //Cloudinary
     cloudinary: {

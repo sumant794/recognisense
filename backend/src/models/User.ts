@@ -9,6 +9,7 @@ export interface IUser extends Document {
     role: 'admin'| 'employee';
     avatar?: string;
     isActive: boolean;
+    refreshToken? : string;
     createdAt: Date;
     updatedAt: Date;
 
@@ -60,6 +61,11 @@ const userSchema = new Schema<IUser>(
             type: Boolean,
             default: true,
         },
+        refreshToken: {
+            type: String,
+            default: '',
+            select: false,
+        }
     },
     {
         timestamps: true,
