@@ -37,10 +37,12 @@ app.get('/health', (req, res) => {
 });
 
 import authRoutes from './routes/auth.routes';
+import productRoutes from './routes/product.routes';
 
 // Auth Routes
 app.use('/api/auth', authRoutes);
-// Test route — sirf admin access kar sake
+//Product Routes
+app.use('/api/products', productRoutes);
 
 // 404 Handler - Koi route match nahi hua 
 app.use('*splat', (req, res) => {
