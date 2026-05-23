@@ -38,11 +38,14 @@ app.get('/health', (req, res) => {
 
 import authRoutes from './routes/auth.routes';
 import productRoutes from './routes/product.routes';
+import employeeRoutes from './routes/employee.routes';
 
 // Auth Routes
 app.use('/api/auth', authRoutes);
 //Product Routes
 app.use('/api/products', productRoutes);
+//Employee Routes
+app.use('/api/employees', employeeRoutes);
 
 // 404 Handler - Koi route match nahi hua 
 app.use('*splat', (req, res) => {

@@ -110,3 +110,43 @@ export const updateProductSchema = z.object({
       .optional(),
   }),
 });
+
+// Employee schemas
+export const createEmployeeSchema = z.object({
+  body: z.object({
+    name: z
+      .string()
+      .min(2, 'Name must be at least 2 characters')
+      .max(50, 'Name cannot exceed 50 characters')
+      .trim(),
+
+    email: z
+      .string()
+      .email('Please provide a valid email')
+      .toLowerCase(),
+
+    password: z
+      .string()
+      .min(6, 'Password must be at least 6 characters'),
+
+    role: z
+      .enum(['admin', 'employee'])
+      .optional()
+      .default('employee'),
+  }),
+});
+
+export const updateEmployeeSchema = z.object({
+  body: z.object({
+    name: z
+      .string()
+      .min(2, 'Name must be at least 2 characters')
+      .max(50, 'Name cannot exceed 50 characters')
+      .trim()
+      .optional(),
+
+    role: z
+      .enum(['admin', 'employee'])
+      .optional(),
+  }),
+});
