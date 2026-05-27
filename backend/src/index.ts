@@ -39,6 +39,7 @@ app.get('/health', (req, res) => {
 import authRoutes from './routes/auth.routes';
 import productRoutes from './routes/product.routes';
 import employeeRoutes from './routes/employee.routes';
+import recognitionRoutes from './routes/recognition.routes';
 
 // Auth Routes
 app.use('/api/auth', authRoutes);
@@ -46,6 +47,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 //Employee Routes
 app.use('/api/employees', employeeRoutes);
+//History Routes
+app.use('/api/recognitions', recognitionRoutes);
 
 // 404 Handler - Koi route match nahi hua 
 app.use('*splat', (req, res) => {
