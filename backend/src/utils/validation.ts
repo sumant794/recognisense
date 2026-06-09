@@ -76,7 +76,8 @@ export const createProductSchema = z.object({
       .string()
       .min(2, 'SKU must be at least 2 characters')
       .max(50, 'SKU cannot exceed 50 characters')
-      .trim(),
+      .trim()
+      .optional(),
   }),
 });
 

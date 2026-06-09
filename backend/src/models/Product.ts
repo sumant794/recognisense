@@ -38,7 +38,7 @@ const productSchema = new Schema<IProduct>(
 
         sku: {
             type: String,
-            required: [true, 'sku is required'],
+            required: false,
             unique: true,      // Har product ka alag SKU
             uppercase: true,   // Hamesha uppercase save karo   
             trim: true,
@@ -69,6 +69,16 @@ const productSchema = new Schema<IProduct>(
         timestamps: true,
     }
 );
+
+productSchema.pre('save', async function(){
+    if(!this.sku){
+        const prefix = this.category
+            .substring(0, 3)
+            .toUpperCase();
+        const random = Math.floor(1000 + Math.random() * 9000);
+        this.sku = `${prefix}-${random}`;
+    }
+});
 
 // =====================
 // INDEXES
